@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Movie from './components/Movie'
 
 
@@ -8,21 +9,37 @@ const FEATURE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popular
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 
-const SEARCH_API = "https://api.themoviedb.org/3/search/movie?&api_key=e59edc16a39691eaa185d6b7049ca9d4&query=";
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${process.env.REACT_APP_API_KEY}query=`;
 
 function App() {
 
-  const [ movies, setMovies ] = useState([])
+  const [ movies, setMovies ] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(FEATURE_API);
+      setMovies(request.data.results);
+      return request;
+    }
+
+    fetchData();
+  }, [FEATURE_API]);
+
+  console.log(movies);
+
   return (
-    <div className="App">
-      <header >
-       {movies.map(movie =>(
-         <Movie/>
-       ))} 
-        
-      </header>
+    <div> 
+      {movies?.map((movie) => (
+      <div>
+        <li key={movie}>{movie.id}</li>
+        <p>{movie.overview}</p>
+      </div>
+      
+      ))}
+      
     </div>
-  );
+  )
+  
 }
 
 export default App;
