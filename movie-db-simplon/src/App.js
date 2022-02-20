@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import Movie from './components/Movie'
+import Movie from './components/Movie';
+
 
 
 const FEATURE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`;
 
-
-const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${process.env.REACT_APP_API_KEY}query=`;
@@ -28,11 +27,10 @@ function App() {
   console.log(movies);
 
   return (
-    <div> 
+    <div className="movie-container"> 
       {movies?.map((movie) => (
       <div>
-        <li key={movie}>{movie.id}</li>
-        <p>{movie.overview}</p>
+        <Movie key={movie.id} {...movie}/>
       </div>
       
       ))}
