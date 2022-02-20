@@ -28,8 +28,12 @@ function App() {
   console.log(movies);
 
   return (
+    <div>
+    <SearchBar/>
     <div className="movie-container">
-      <SearchBar/>
+      <div>
+        
+      </div >
       {movies?.map((movie) => (
       <div>
         <Movie key={movie.id} {...movie}/>
@@ -37,6 +41,7 @@ function App() {
       
       ))}
       
+    </div>
     </div>
   )
   
