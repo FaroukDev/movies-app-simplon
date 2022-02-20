@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Movie from './components/Movie';
+import SearchBar  from "./components/SearchBar";
 
 
 
@@ -27,7 +28,8 @@ function App() {
   console.log(movies);
 
   return (
-    <div className="movie-container"> 
+    <div className="movie-container">
+      <SearchBar/>
       {movies?.map((movie) => (
       <div>
         <Movie key={movie.id} {...movie}/>
