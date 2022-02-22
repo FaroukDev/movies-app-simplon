@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../css/SearchBar.css'
 
 function SearchBar() {
   return (
     <div>
-        <header>
-            <h1>The Movie DB</h1>
-            <input type="text" placeholder="Search..." />
+        <header className='header'>
+            <span >The Movie DB</span>
+            <input className='search' type="text" placeholder="Search..." />
         </header>
     </div>
   )
