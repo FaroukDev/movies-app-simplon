@@ -11,11 +11,16 @@ function SearchBar() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    fetch(SEARCH_API + searchTerm)
+    if (searchTerm) {
+      fetch(SEARCH_API + searchTerm)
       .then((res) => res.json())
       .then((data) => {
         setMoviesSearch(data.results);
       });
+
+      setSearchTerm('');
+    }
+
   };
 
   const handleOnChange = (e) => {
@@ -39,7 +44,7 @@ function SearchBar() {
       </header>
       <div className="movie-container">
         {moviesSearch?.map((movie) => (
-          <div>
+          <div key={movie.id}>
             <Movie key={movie.id} {...movie} />
           </div>
         ))}

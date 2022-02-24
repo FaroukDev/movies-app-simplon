@@ -18,6 +18,9 @@ header{
 
 }
 
+.search:focus {
+    outline:none;
+}
 /************css moviee search ********************/
 
 .movie-container {
