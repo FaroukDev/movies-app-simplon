@@ -22,7 +22,9 @@ body{
 }
 
 .movie img {
+  height:450px;
   max-width: 100%;
+  object-fit: cover;
 }
 
 .movie-info{
@@ -66,3 +68,23 @@ body{
 .movie-over h2 {
   text-align: center;
 }
+
+.tag {
+  background-color: #22254b;
+  border-radius: 5px;
+  padding:0.5rem;
+  font-weight: bold;
+}
+
+.tag.green {
+  color: greenyellow;
+}
+
+.tag.orange {
+  color: orange;
+}
+
+.tag.red {
+  color: red;
+}
+
