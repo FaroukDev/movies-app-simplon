@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Movie from "./Movie";
-import SearchBar from "./SearchBar";
+import Movie from "../Movie/Movie";
+import SearchBar from "../SearchBar/SearchBar";
 
 const FEATURE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`;
 
@@ -16,7 +16,7 @@ function Home() {
     }
 
     fetchData();
-  }, [FEATURE_API]);
+  }, []);
 
   console.log(movies);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Movie.css";
+import "../../assets/css/Movie.css";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -12,6 +12,7 @@ const setVoteClass = (vote) => {
     return "red";
   }
 };
+
 
 const Movie = ({
   title,

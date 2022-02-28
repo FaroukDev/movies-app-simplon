@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Movie from "./Movie";
-import "../css/SearchBar.css";
+import React, { useState } from "react";
+import Movie from "../Movie/Movie";
+import "../../assets/css/SearchBar.css";
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${process.env.REACT_APP_API_KEY}&query=`;
 
 function SearchBar() {
   const [moviesSearch, setMoviesSearch] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +32,7 @@ function SearchBar() {
   return (
     <div>
       <header className="header">
-        <span>The Movie DB</span>
+        <span >The Movie DB</span>
         <form onSubmit={handleOnSubmit}>
           <input
             className="search"
